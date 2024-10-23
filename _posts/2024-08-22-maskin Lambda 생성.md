@@ -279,4 +279,4 @@ author: Jongmin Kim
     
     → 따라서 이름에서 AWS를 떼고 환경 변수로 지정하여 함수에서 사용하도록 함. 
     
-    ![제목 없음.png](/photos/maskingLambdaDocker/14.png)
+    ![image.png](/photos/maskingLambdaDocker/14.png)
