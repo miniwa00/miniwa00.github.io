@@ -59,13 +59,13 @@ author: Jongmin Kim
     - 작은 규모에서 권장되는 CIDR 블록인 24블록 사용
     - NAT 게이트웨이는 생성하는 즉시 시간당 0.045$ 씩 과금이 발생하기 때문에 프라이빗 서브넷에 있는 리소스들이 외부 API 호출을 필요로 하는 순간에 켜줄 예
         
-        ![image](/photos/SpringBootECS/1.png)
+        ![image](/assets/img/photos/SpringBootECS/1.png)
         
 - 보안 그룹 연결
     - Spring Boot Application이 사용하는 8080 포트랑 MySQL이 사용하는 3306 포트를 인바운드 규칙에 추가해줌
     - VPC ID가 이전에 생성한 VPC의 ID와 동일한지 확인
         
-        ![image](/photos/SpringBootECS/2.png)
+        ![image](/assets/img/photos/SpringBootECS/2.png)
         
 
 ---
@@ -75,12 +75,12 @@ author: Jongmin Kim
 - 리포지토리 생성
     - 리포지토리 이름을 입력해줌
         
-        ![image](/photos/SpringBootECS/3.png)
+        ![image](/assets/img/photos/SpringBootECS/3.png)
         
 - Push Docker image
     - 우측 푸시 명령 보기를 클릭
         
-        ![image](/photos/SpringBootECS/4.png)
+        ![image](/assets/img/photos/SpringBootECS/4.png)
         
     - 화면에 나온 명령어를 그대로 입력
         - 단 1번 명령어는 아래 명령어로 바꿔 입력 (aws cli가 설치돼있고 access key가 있다는 가정 하에 진행)
@@ -90,7 +90,7 @@ author: Jongmin Kim
             ```
             
         
-        ![image](/photos/SpringBootECS/5.png)
+        ![image](/assets/img/photos/SpringBootECS/5.png)
         
 
 ---
@@ -100,11 +100,11 @@ author: Jongmin Kim
 - 클러스터 생성
     - 우측 클러스터 생성 클릭
         
-        ![image](/photos/SpringBootECS/6.png)
+        ![image](/assets/img/photos/SpringBootECS/6.png)
         
     - 클러스터 정보 입력해서 클러스터 생성
         
-        ![image](/photos/SpringBootECS/cluster.png)
+        ![image](/assets/img/photos/SpringBootECS/cluster.png)
         
         - **AWS Fargate 설명**
             - **장점**
@@ -124,25 +124,25 @@ author: Jongmin Kim
 - 태스크 정의 생성
     - 좌측 태스크 정의 클릭
         
-        ![image](/photos/SpringBootECS/7.png)
+        ![image](/assets/img/photos/SpringBootECS/7.png)
         
     - 새 태스크 정의 생성
         - 시작 유형은 AWS Fargate 선택
         - 태스크 크기는 최소 규모에 가까운 1 vCPU, 2GB 메모리로 설정
             - 이때 ‘태스크 크기’는 해당 태스크 정의를 따르는 모든 컨테이너들이 사용할 수 있는 리소스의 총량이다.
             
-            ![image](/photos/SpringBootECS/8.png)
+            ![image](/assets/img/photos/SpringBootECS/8.png)
             
         - 이미지 URI에는 ECR에 업로드한 이미지의 URI를 입력
             - **ECR에서 이미지 URI**
                 
-                ![image](/photos/SpringBootECS/ecr.png)
+                ![image](/assets/img/photos/SpringBootECS/ecr.png)
                 
         - 컨테이너 포트를 매핑
             - 8080: Spring Boot 포트
             - 3306: MySQL 포트
             
-            ![image](/photos/SpringBootECS/9.png)
+            ![image](/assets/img/photos/SpringBootECS/9.png)
             
         - 리소스 할당 제한이란?
             - 컨테이너 내에서 할당하고자 하는 리소스의 양
@@ -150,27 +150,27 @@ author: Jongmin Kim
 - 클러스터 내 서비스 생성
     - 클러스터 안에서 우측 생성 클릭
         
-        ![image](/photos/SpringBootECS/10.png)
+        ![image](/assets/img/photos/SpringBootECS/10.png)
         
     - 생성할 서비스 구성
         - 아까 생성한 태스크 패밀리와 개정 버전을 선택
             
-            ![image](/photos/SpringBootECS/11.png)
+            ![image](/assets/img/photos/SpringBootECS/11.png)
             
         - 네트워킹 설정에서 사용할 VPC, 서브넷, 보안그룹을 선택
             - VPC를 생성할 때 NAT Gateway를 만들지 않았기 때문에 Public Subnet만 열어주면 된다.
             
-            ![image](/photos/SpringBootECS/12.png)
+            ![image](/assets/img/photos/SpringBootECS/12.png)
             
 - 생성된 서비스 & 태스크 확인
     - 메인 화면
         
-        ![image](/photos/SpringBootECS/13.png)
+        ![image](/assets/img/photos/SpringBootECS/13.png)
         
     - 태스크
         
-        ![image](/photos/SpringBootECS/14.png)
+        ![image](/assets/img/photos/SpringBootECS/14.png)
         
     - 퍼블릭 IP:포트로 접근했을 때
         
-        ![image](/photos/SpringBootECS/15.png)
+        ![image](/assets/img/photos/SpringBootECS/15.png)

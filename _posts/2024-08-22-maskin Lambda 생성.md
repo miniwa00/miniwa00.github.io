@@ -28,7 +28,7 @@ author: Jongmin Kim
 
 1. 기존 CatVTON 리포지토리에서 preprocess_agnostic_mask.py와 참조 폴더들을 분리
     
-    ![image](/photos/maskingLambdaDocker/1.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/1.png)
     
 2. agnostic_mask.py를 **“유저 이미지 입력 → 5개의 masking 결과 반환”** 형태로 수정
     
@@ -153,7 +153,7 @@ author: Jongmin Kim
 
 ### **이미지 빌드 및 ECR에 푸시**
 
-![image](/photos/maskingLambdaDocker/2.png)
+![image](/assets/img/photos/maskingLambdaDocker/2.png)
 
 ---
 
@@ -161,19 +161,19 @@ author: Jongmin Kim
 
 1. 우측 함수 생성 클릭
     
-    ![image](/photos/maskingLambdaDocker/3.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/3.png)
     
 2. **컨테이너 이미지** 옵션 선택, 이름 입력
     
-    ![image](/photos/maskingLambdaDocker/4.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/4.png)
     
 3. **이미지 찾아보기** 클릭 후 이미지 선택
     
-    ![image](/photos/maskingLambdaDocker/5.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/5.png)
     
 4. 생성된 함수 확인
     
-    ![image](/photos/maskingLambdaDocker/6.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/6.png)
     
 
 ---
@@ -192,7 +192,7 @@ author: Jongmin Kim
     - 엔드포인트: [`http://localhost:9000/2015-03-31/functions/function/invocations`](http://localhost:9000/2015-03-31/functions/function/invocations)
     - header와 body에 적절한 값(테스트 이벤트 json과 동일한 형식)을 넣어서 요청을 전송하고 결과를 확인
     
-    ![image](/photos/maskingLambdaDocker/7.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/7.png)
     
 
 ### **Troubleshooting**
@@ -201,13 +201,13 @@ author: Jongmin Kim
     - 최초에는 제한 시간이 3초로 설정돼있음.
     - 이 값을 예상되는 함수 실행 시간만큼 늘려줘야 함.
     
-    ![image](/photos/maskingLambdaDocker/8.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/8.png)
     
-    ![image](/photos/maskingLambdaDocker/9.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/9.png)
     
 2. 실행 중 `Unable to import module 'agnostic_mask': No module named 'model'` 에러 발생
     
-    ![image](/photos/maskingLambdaDocker/10.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/10.png)
     
     - Lambda는 `/var/task` 안에 있는 파일들만 실행할 수 있음
     - 그러나 최초에 Dockerfile을 작성할 때는 workdir을 `/app` 으로 두고 거기 안에 모든 파일들을 복사하도록 함. 그리고 실행에 필요한 `agnostic_mask.py` 만 `/var/task` 로 옮겼음.
@@ -259,11 +259,11 @@ author: Jongmin Kim
 4. 실행 중 용량 부족 발생
     - 마찬가지로 `/tmp` 의 용량을 적절히 늘려주면 됨
     
-    ![image](/photos/maskingLambdaDocker/11.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/11.png)
     
 5. 실행 중 Read-only 이슈 발생
     
-    ![image](/photos/maskingLambdaDocker/12.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/12.png)
     
     - Lambda는 `/tmp` 를 제외한 모든 디렉토리는 Read-only
     - 그러나 `agnostic_mask.py` 에서 cache를 저장하는 부분과 masking 결과물을 저장하는 부분이 동일한 디렉토리에 저장하게끔 되어 있어 에러가 발생
@@ -272,11 +272,11 @@ author: Jongmin Kim
     
 6. Lambda가 .env에서 환경변수를 직접 읽어오지 못함.
     
-    ![image](/photos/maskingLambdaDocker/13.png)
+    ![image](/assets/img/photos/maskingLambdaDocker/13.png)
     
     - AWS access key가 담긴 `.env`를 Docker Image에 직접 포함시켜서 함수를 실행해봤지만 환경변수를 읽어오지 못하는 문제가 발생
     - 또한 AWS_ACCESS_KEY_ID라는 키를 그대로 써도 반영이 안되는(IAM 역할로 추가하라는) 문구가 뜸.
     
     → 따라서 이름에서 AWS를 떼고 환경 변수로 지정하여 함수에서 사용하도록 함. 
     
-    ![image.png](/photos/maskingLambdaDocker/14.png)
+    ![image.png](/assets/img/photos/maskingLambdaDocker/14.png)

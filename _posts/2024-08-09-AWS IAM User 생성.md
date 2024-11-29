@@ -20,7 +20,7 @@ author: Jongmin Kim
       - 계정을 조직 단위(OU)로 그룹화하고 OU마다 다른 엑세스 정책을 연결할 수 있음.
   - 회사에서 필요한 권한이 다른 각 팀에 OU를 부여하고 결제를 통합적으로 관리하기에 적절함.
   - 각 계정은 독립적으로 각자의 활동을 할 수 있음.
-    ![image](/photos/IAM/1.png){: width="700" height="400" }
+    ![image](/assets/img/photos/IAM/1.png){: width="700" height="400" }
 
 ---
 
@@ -42,21 +42,21 @@ author: Jongmin Kim
 ### IAM 사용자 등록 방법
 
 1. 서비스에서 IAM 검색 후 접속
-   ![image](/photos/IAM/2.png){: width="700" height="400" }
+   ![image](/assets/img/photos/IAM/2.png){: width="700" height="400" }
 2. 좌측 사이드바에서 사용자 클릭 후 접속
-   ![image](/photos/IAM/3.png){: width="700" height="400" }
+   ![image](/assets/img/photos/IAM/3.png){: width="700" height="400" }
 3. 우측의 사용자 생성 클릭 후 사용자 세부 정보 지정
-   ![image](/photos/IAM/4.png){: width="700" height="400" }
+   ![image](/assets/img/photos/IAM/4.png){: width="700" height="400" }
    - 이때 Identity Center에서 사용자 지정 - 권장을 누르게 되면 Identity Center에서 사용자를 생성하도록 안내함
-   ![image](/photos/IAM/5.png){: width="700" height="150" }
+   ![image](/assets/img/photos/IAM/5.png){: width="700" height="150" }
    - Identity Center에서 생성된 사용자는 이메일로 전송된 access portal 링크를 통해서만 AWS 콘솔에 접근할 수 있음 (기존 로그인 방식으로는 접근 불가)
    - 기존 로그인 방식으로 IAM 유저 로그인을 하고 싶다면 위의 절차로 진행해야함.
 4. 그룹이 있다면 그룹에 사용자를 추가하고 없다면 그룹을 생성해 줌
-   ![image](/photos/IAM/6.png){: width="700" height="400" }
+   ![image](/assets/img/photos/IAM/6.png){: width="700" height="400" }
    - 그룹 생성 탭에서는 아래와 같이 그룹에 할당할 권한을 설정할 수 있음
-   ![image](/photos/IAM/7.png){: width="700" height="400" }
+   ![image](/assets/img/photos/IAM/7.png){: width="700" height="400" }
 5. 검토 및 생성을 진행함
-   ![image](/photos/IAM/8.png){: width="700" height="400" }
+   ![image](/assets/img/photos/IAM/8.png){: width="700" height="400" }
 6. csv 파일에는 최초 접속을 위한 아이디와 비밀번호가 담겨 있음 (이때가 비밀번호를 확인할 수 있는 유일한 시간이니 csv를 꼭 잘 저장해 놓자)
-   ![image](/photos/IAM/9.png){: width="700" height="400" }
+   ![image](/assets/img/photos/IAM/9.png){: width="700" height="400" }
 7. 이후 로그인을 위해서는 root 계정의 ID 12자리 수를 넣고 사용자 이름, 최초 암호를 입력하면 암호 재설정 이후 정상적으로 콘솔에 접근이 가능함.

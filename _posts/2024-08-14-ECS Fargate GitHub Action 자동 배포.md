@@ -14,23 +14,23 @@ author: Jongmin Kim
 - 태스크 정의 json 파일 다운로드
     - 좌측 태스크 정의 클릭
         
-        ![image](/photos/ECSGitHubAction/1.png)
+        ![image](/assets/img/photos/ECSGitHubAction/1.png)
         
     - 존재하는 태스크 정의 패밀리 클릭
         
-        ![image](/photos/ECSGitHubAction/2.png)
+        ![image](/assets/img/photos/ECSGitHubAction/2.png)
         
     - 최신 태스크 정의 클릭
         
-        ![image](/photos/ECSGitHubAction/3.png)
+        ![image](/assets/img/photos/ECSGitHubAction/3.png)
         
     - JSON 탭에서 JSON 다운로드 클릭
         
-        ![image](/photos/ECSGitHubAction/4.png)
+        ![image](/assets/img/photos/ECSGitHubAction/4.png)
         
     - 다운받은 json 파일을 애플리케이션 루트 디렉토리에 위치
         
-        ![image](/photos/ECSGitHubAction/5.png)
+        ![image](/assets/img/photos/ECSGitHubAction/5.png)
         
 
 ---
@@ -39,11 +39,11 @@ author: Jongmin Kim
 
 - GitHub Action에서 ‘Deploy to Amazon ECS’ workflow 선택
     
-    ![image](/photos/ECSGitHubAction/6.png)
+    ![image](/assets/img/photos/ECSGitHubAction/6.png)
     
 - Settings의 Secrets and variables에서 AWS_ACCESS_KEY_ID와 AWS_SECRET_ACCESS_KEY를 Repository secrets에 등록
     
-    ![image](/photos/ECSGitHubAction/7.png)
+    ![image](/assets/img/photos/ECSGitHubAction/7.png)
     
 - .github/workflows/aws.yml 파일을 아래 코드로 수정
     
@@ -124,7 +124,7 @@ author: Jongmin Kim
     
 - 커밋 후 workflow가 작동하는 것을 확인
     
-    ![image](/photos/ECSGitHubAction/workflow.png)
+    ![image](/assets/img/photos/ECSGitHubAction/workflow.png)
     
 
 ---
@@ -133,25 +133,25 @@ author: Jongmin Kim
 
 - (수정) action workflow가 끝나면 자동으로 배포되게 수정
     
-    ![image](/photos/ECSGitHubAction/8.png)
+    ![image](/assets/img/photos/ECSGitHubAction/8.png)
     
 
 ---
 
 - 태스크 정의에 최신 개정이 추가됐는지 확인
     
-    ![image](/photos/ECSGitHubAction/9.png)
+    ![image](/assets/img/photos/ECSGitHubAction/9.png)
     
-    ![image](/photos/ECSGitHubAction/10.png)
+    ![image](/assets/img/photos/ECSGitHubAction/10.png)
     
 - 개정된 태스크 정의를 바탕으로 서비스에 새로운 태스크를 띄우기
     - 서비스로 접속
         
-        ![image](/photos/ECSGitHubAction/11.png)
+        ![image](/assets/img/photos/ECSGitHubAction/11.png)
         
     - 우측의 서비스 업데이트 클릭
         - ‘새 배포 강제 적용’에 체크
         - 원하는 태스크 정의 개정 버전을 선택
         - 태스크를 없애고 싶으면 원하는 태스크를 0으로 설정
             
-            ![image](/photos/ECSGitHubAction/12.png)
+            ![image](/assets/img/photos/ECSGitHubAction/12.png)
