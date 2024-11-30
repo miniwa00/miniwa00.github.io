@@ -7,6 +7,7 @@ math: true
 toc: true
 published: true
 author: Jongmin Kim
+comments: true
 ---
 
 ## **에자일한 팀 의사결정을 위한 방법**  
