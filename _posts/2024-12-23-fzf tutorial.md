@@ -10,8 +10,6 @@ author: Jongmin Kim
 comments: true
 ---
 
-# fzf 사용법 및 튜토리얼
-
 fzf는 터미널에서 사용할 수 있는 경량화되고 빠른 명령줄 인터페이스 기반의 파일 및 텍스트 검색 도구이다. 
 
 ---
