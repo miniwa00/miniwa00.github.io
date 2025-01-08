@@ -10,9 +10,9 @@ author: Jongmin Kim
 comments: true
 ---
 
-> YouTube에서 ByteByteGo 채널의 'HTTP 1 Vs HTTP 2 Vs HTTP 3!' 비디오를 보고 내용을 정리했습니다.
-> 아래에 첨부된 사진들은 해당 비디오에서 발췌된 것임을 밝힙니다.
-> **영상 링크: <a href="https://velog.io/@ekxk1234/ECS-체험기" target="_blank" title="ECS 체험기">ByteByteGo - HTTP 1 Vs HTTP 2 Vs HTTP 3!</a>**
+> YouTube에서 ByteByteGo 채널의 'HTTP 1 Vs HTTP 2 Vs HTTP 3!' 비디오를 보고 내용을 정리했습니다.  
+> 아래에 첨부된 사진들은 해당 비디오에서 발췌된 것임을 밝힙니다.  
+> **영상 링크: <a href="https://youtu.be/UMwQjFzTQXw?si=HcBXt7ul1-_VqxeY" target="_blank" title="ByteByteGo - HTTP 1 Vs HTTP 2 Vs HTTP 3!">ByteByteGo - HTTP 1 Vs HTTP 2 Vs HTTP 3!</a>**
 
 ### HTTP란?
 - HTTP(Hypertext Transfer Protocol)는 브라우저와 웹 서버가 소통하는 방법. 처음에는 하이퍼텍스트 문서(링크가 포함된 문서)를 전송하기 위해 설계되었지만, 지금은 이미지, 동영상, API, 파일 전송 등 다양한 웹 서비스를 지원함.
@@ -23,7 +23,7 @@ comments: true
 - HTTP 0.9 (1991):
   - 아주 단순했으며 GET 요청만 지원.
   - HTML 파일만 전송 가능, 헤더나 상태 코드 없음.
-  <p align=center><img src="/assets/img/photos/http/1.png", width=400, height=100></p>
+  <p align=center><img src="/assets/img/photos/http/1.png" width=400 height=100></p>
 <br> 
 
 - HTTP 1.0 (1996):
@@ -33,25 +33,25 @@ comments: true
     2. Certificate Check: 서버로부터 Certification을 받는 과정
     3 . Key Exchange: 클라이언트와 서버간의 데이터를 암호화하기 위한 session key 생성 및 교환
     4. Data Transmission: 암호화된 데이터를 주고받음
-  <p align=center><img src="/assets/img/photos/http/2.png", width=200, height=300></p>
+  <p align=center><img src="/assets/img/photos/http/2.png" width=200 height=300></p>
 <br>
 
 - HTTP 1.1 (1997):  
   - **지속적 연결(Persistent Connections)** : 요청마다 연결을 끊지 않음.
-  <p align=center><img src="/assets/img/photos/http/3.png", width=400, height=250></p>
+  <p align=center><img src="/assets/img/photos/http/3.png" width=400 height=250></p>
 
   - **파이프라이닝(Pipelining)** : 한 연결에서 여러 요청을 연속적으로 보낼 수 있게 함.
-  <p align=center><img src="/assets/img/photos/http/4.png", width=400, height=250></p>
+  <p align=center><img src="/assets/img/photos/http/4.png" width=400 height=250></p>
 
   - **청크 전송 인코딩** : 비디오와 같은 큰 응답을 작은 단위로 나눠 전송 → 페이지 로드 속도 개선.
-  <p align=center><img src="/assets/img/photos/http/5.png", width=400, height=150></p>
+  <p align=center><img src="/assets/img/photos/http/5.png" width=400 height=150></p>
 
   - **캐싱 및 조건부 요청** : 불필요한 데이터 전송을 줄여 성능 향상.
     - 헤더에 Cache-Control이나 If-Modified-Since 등을 포함시켜 캐싱 구현
-  <p align=center><img src="/assets/img/photos/http/6.png", width=400, height=200></p>
+  <p align=center><img src="/assets/img/photos/http/6.png" width=400 height=200></p>
 
   - 하지만 **Head-of-Line Blocking 문제**가 여전히 존재.
-  <p align=center><img src="/assets/img/photos/http/7.png", width=400, height=400></p>
+  <p align=center><img src="/assets/img/photos/http/7.png" width=400 height=400></p>
 
     - Head-of-Line Blocking이란? 
       - 여러 요청이 동일한 연결이나 큐를 공유할 때, 앞선 요청 중 하나가 지연되거나 블록될 경우 뒤에 있는 다른 요청들이 그 요청이 처리되기를 기다리게되는 문제.
@@ -82,7 +82,7 @@ comments: true
       - HTTP/2에서는 여러 요청과 응답이 하나의 TCP 연결에서 처리됨
       - 요청과 응답은 각각 **Strema**이라는 단위로 구분됨
         - Streamd은 HTTP/2 프로토콜의 논리적 채널로 각 요청/응답이 독립적으로 전송됨
-    <p align=center><img src="/assets/img/photos/http/8.png", width=400, height=200></p>
+    <p align=center><img src="/assets/img/photos/http/8.png" width=400 height=200></p>
 
     - **Binary Framing Layer**
       - HTTP/2는 데이터를 플레인 텍스트로 전송하는 HTTP/1.1과 다르게 데이터를 Binary Frame 형식으로 전송함
@@ -93,7 +93,7 @@ comments: true
       - **이는 HTTP/1.1에서 발생했던 Head-of-Line Blocking 문제를 해결함**
     - **Server Push**
       - 요청하지 않은 리소스를 미리 클라이언트에 전달.
-    <p align=center><img src="/assets/img/photos/http/9.png", width=400, height=300></p>
+    <p align=center><img src="/assets/img/photos/http/9.png" width=400 height=300></p>
 
     - **스트림 우선순위**
       - 중요 리소스를 먼저 로드하도록 설정 가능.
@@ -104,7 +104,7 @@ comments: true
       1. 서버로 전송된 요청 중 일부 데이터(패킷)가 손실
       2. TCP는 신뢰성을 보장하기 위해 손실된 패킷을 다시 전송
       3. 이 과정에서 해당 연결의 모든 요청 처리가 지연될 수 있음
-      <p align=center><img src="/assets/img/photos/http/10.png", width=300, height=300></p>
+      <p align=center><img src="/assets/img/photos/http/10.png" width=300 height=300></p>
 <br>
 
 - HTTP 3 (2022):
