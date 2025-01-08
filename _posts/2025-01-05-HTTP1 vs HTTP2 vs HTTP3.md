@@ -1,6 +1,6 @@
 ---
 title: "HTTP 1 Vs HTTP 2 Vs HTTP 3"
-date: 2024-01-05 15:00:00 +/-TTTT
+date: 2025-01-05 15:00:00 +/-TTTT
 categories: [Network]
 tags: [http]
 math: true
