@@ -23,7 +23,7 @@ comments: true
 - HTTP 0.9 (1991):
   - 아주 단순했으며 GET 요청만 지원.
   - HTML 파일만 전송 가능, 헤더나 상태 코드 없음.
-  <p style="text-align: center;"><img src="https://miniwa00.github.io/assets/img/photos/http/1.png" alt="Description of image" width=400 height=100></p>
+  <center><img src="https://miniwa00.github.io/assets/img/photos/http/1.png" alt="Description of image" width=400 height=100></center>
 <br> 
 
 - HTTP 1.0 (1996):
