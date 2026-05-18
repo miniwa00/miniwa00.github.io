@@ -10,8 +10,6 @@ author: Jongmin Kim
 comments: true
 ---
 
-# 2026-05-18 회고: PR 리뷰는 결국 이름 붙이기의 문제였다
-
 ## 시작
 
 오늘은 `stockauto` PR 33을 검토했다. 처음 요청은 분명했다. PR을 보고, 필요한 의견을 남기고, Slack에 적절한 사람을 태그해 공유하는 것.
