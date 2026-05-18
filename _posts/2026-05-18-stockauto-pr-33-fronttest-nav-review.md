@@ -85,12 +85,6 @@ portfolio_nav = holdings_nav + cash_balance
 3. Slack에 작성자를 멘션해 리뷰 결과를 공유했다.
 4. 이후 질문을 통해 백테스트와 프론트테스트의 차이를 다시 정리하고, 원문 Slack 스레드에 더 친절한 설명을 덧붙였다.
 
-## 남긴 링크
-
-- GitHub PR 코멘트: [https://github.com/stockauto-org/stockauto/pull/33#issuecomment-4476727840](https://github.com/stockauto-org/stockauto/pull/33#issuecomment-4476727840)
-- Slack 원문 알림: `slackMessage://stockauto-yk61266.slack.com/C0B4A18CLPM/1779099902.248889/1779099902.248889`
-- Slack 후속 스레드 댓글: `slackMessage://stockauto-yk61266.slack.com/C0B4A18CLPM/1779100396.138639/1779099902.248889`
-
 ## 결론
 
 프론트테스트는 "수익률 계산기"가 아니라 "시간이 흐르는 계좌의 기록"에 가깝다. 그러면 좋은 지표는 좋은 산식만으로 만들어지지 않는다. 좋은 이름, 좋은 분리, 그리고 나중에 다시 봐도 같은 뜻으로 읽히는 저장 구조가 필요하다.
