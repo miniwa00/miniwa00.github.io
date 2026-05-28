@@ -1,6 +1,6 @@
 ---
 title: "Expo 관련 커맨드 정리"
-date: 2025-01-20 17:00:00 +0900
+date: 2025-07-16 17:00:00 +0900
 categories: [React Native]
 tags: [expo, react-native, android, ios]
 math: true

@@ -1,6 +1,6 @@
 ---
 title: "AWS IAM User 생성"
-date: 2024-08-09 17:00:00 +/-TTTT
+date: 2024-07-13 17:00:00 +0900
 categories: [AWS]
 tags: [aws, iam]
 math: true

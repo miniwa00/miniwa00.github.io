@@ -1,6 +1,6 @@
 ---
 title: "CatVTON 로컬 테스트"
-date: 2024-10-14 17:00:00 +0900
+date: 2024-10-11 17:00:00 +0900
 categories: [AI]
 tags: [catvton, virtual-try-on, python, cuda]
 math: true

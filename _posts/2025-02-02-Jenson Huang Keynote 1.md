@@ -1,6 +1,6 @@
 ---
 title: "[CES 2025] 젠슨 황 NVIDIA CEO 기조연설 직관 후기 (1)"
-date: 2025-01-06 17:00:00 +/-TTTT
+date: 2025-02-02 17:00:00 +0900
 categories: [Essay]
 tags: [ces2025, keynote, nvidia, blackwell, rtx, ai, gpu]
 math: true

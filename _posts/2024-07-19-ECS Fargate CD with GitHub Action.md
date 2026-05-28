@@ -1,6 +1,6 @@
 ---
 title: "ECS Fargate + GitHub Action 자동 배포"
-date: 2024-08-14 18:00:00 +/-TTTT
+date: 2024-07-19 17:00:00 +0900
 categories: [AWS]
 tags: [aws, docker, ecs, github action]
 math: true

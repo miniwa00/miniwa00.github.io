@@ -1,6 +1,6 @@
 ---
 title: "Spring Boot 도커 이미지 ECS 수동 배포"
-date: 2024-08-14 17:00:00 +/-TTTT
+date: 2024-07-28 17:00:00 +0900
 categories: [AWS]
 tags: [aws, docker, ecs]
 math: true

@@ -1,6 +1,6 @@
 ---
 title: "VPC 안의 RDS 퍼블릭 액세스 이해하기"
-date: 2024-08-24 17:00:00 +0900
+date: 2024-08-31 17:00:00 +0900
 categories: [AWS]
 tags: [aws, rds, vpc, bastion-host, network]
 math: true

@@ -1,6 +1,6 @@
 ---
 title: "Expo prebuild 이후 APK 설치 오류 정리"
-date: 2025-01-25 17:00:00 +0900
+date: 2025-07-30 17:00:00 +0900
 categories: [React Native]
 tags: [expo, eas, android, apk, troubleshooting]
 math: true

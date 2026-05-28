@@ -1,6 +1,6 @@
 ---
 title: "fzf 사용법 및 튜토리얼"
-date: 2024-12-23 14:00:00 +/-TTTT
+date: 2025-05-12 17:00:00 +0900
 categories: [Tool]
 tags: [macOS, CLI Tool, fzf, iterm, zsh, neovim, brew]
 math: true

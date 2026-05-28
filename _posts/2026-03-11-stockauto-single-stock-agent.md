@@ -1,6 +1,6 @@
 ---
 title: "stockauto 개별 종목 에이전트 설계 메모"
-date: 2026-05-19 03:00:00 +0900
+date: 2026-03-11 17:00:00 +0900
 categories: [Essay]
 tags: [stockauto, agent, sec, disclosure, trading-strategy]
 math: true

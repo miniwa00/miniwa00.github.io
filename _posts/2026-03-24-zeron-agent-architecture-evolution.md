@@ -1,6 +1,6 @@
 ---
 title: "Zeron 프로젝트 에이전트 설계 딜레마와 아키텍처 진화 리포트"
-date: 2026-05-21 20:01:00 +0900
+date: 2026-03-24 17:00:00 +0900
 categories: [Essay]
 tags: [zeron, agent, sec, disclosure, architecture, llm]
 math: true

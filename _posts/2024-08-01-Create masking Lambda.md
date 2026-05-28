@@ -1,6 +1,6 @@
 ---
 title: "masking Lambda 생성"
-date: 2024-08-22 17:00:00 +/-TTTT
+date: 2024-08-01 17:00:00 +0900
 categories: [AWS]
 tags: [aws, docker, ecr, ecs, lambda]
 math: true

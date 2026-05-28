@@ -1,6 +1,6 @@
 ---
 title: "Fork한 GitHub 레포지토리 커밋은 잔디에 반영될까"
-date: 2024-10-10 17:00:00 +0900
+date: 2025-03-10 17:00:00 +0900
 categories: [Git]
 tags: [github, fork, contribution, git]
 math: true

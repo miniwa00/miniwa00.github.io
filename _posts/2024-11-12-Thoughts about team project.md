@@ -1,6 +1,6 @@
 ---
 title: "팀 프로젝트에 관한 생각들"
-date: 2024-09-02 17:00:00 +/-TTTT
+date: 2024-11-12 17:00:00 +0900
 categories: [Essay]
 tags: [cooperation, communication, agile, teamwork, leadership, design sprint]
 math: true

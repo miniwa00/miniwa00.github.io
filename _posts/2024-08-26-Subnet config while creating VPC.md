@@ -1,6 +1,6 @@
 ---
 title: "VPC 생성 시 서브넷 설정"
-date: 2024-08-23 17:00:00 +/-TTTT
+date: 2024-08-26 17:00:00 +0900
 categories: [AWS]
 tags: [aws, vpc, network, subnet]
 math: true

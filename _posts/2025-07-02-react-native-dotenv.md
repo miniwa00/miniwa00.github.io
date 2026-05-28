@@ -1,6 +1,6 @@
 ---
 title: "React Native에서 dotenv가 동작하지 않을 때"
-date: 2025-01-10 17:00:00 +0900
+date: 2025-07-02 17:00:00 +0900
 categories: [React Native]
 tags: [react-native, expo, dotenv, firebase]
 math: true

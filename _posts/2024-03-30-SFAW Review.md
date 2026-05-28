@@ -1,6 +1,6 @@
 ---
 title: "SFAW 전시회 회고"
-date: 2024-03-30 17:00:00 +/-TTTT
+date: 2024-03-30 17:00:00 +0900
 categories: [Essay]
 tags: [sfaw, listening, customer success, customer satisfaction]
 math: true
