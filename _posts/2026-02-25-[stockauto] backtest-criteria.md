@@ -1,5 +1,5 @@
 ---
-title: "stockauto 백테스트 기준을 다듬은 과정"
+title: "[stockauto] 백테스트 기준을 다듬은 과정"
 date: 2026-02-25 17:00:00 +0900
 categories: [Essay]
 tags: [stockauto, backtest, optuna, mdd]

@@ -1,5 +1,5 @@
 ---
-title: "ECS Fargate + GitHub Action 자동 배포"
+title: "[Omoip] ECS Fargate + GitHub Action 자동 배포"
 date: 2024-07-19 17:00:00 +0900
 categories: [AWS]
 tags: [aws, docker, ecs, github action]

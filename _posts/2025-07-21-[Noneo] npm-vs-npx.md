@@ -1,5 +1,5 @@
 ---
-title: "npm과 npx의 차이"
+title: "[Noneo] npm과 npx의 차이"
 date: 2025-07-21 17:00:00 +0900
 categories: [JavaScript]
 tags: [nodejs, npm, npx, cli]

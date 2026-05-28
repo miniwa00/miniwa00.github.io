@@ -1,5 +1,5 @@
 ---
-title: "Stockauto PR 33 프론트테스트 NAV 리뷰 기록"
+title: "[stockauto] PR 33 프론트테스트 NAV 리뷰 기록"
 date: 2026-02-14 17:00:00 +0900
 categories: [Essay]
 tags: [stockauto, pr-review, fronttest, nav]

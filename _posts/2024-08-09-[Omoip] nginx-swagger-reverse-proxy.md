@@ -1,5 +1,5 @@
 ---
-title: "NGINX로 Swagger만 외부에 노출하기"
+title: "[Omoip] NGINX로 Swagger만 외부에 노출하기"
 date: 2024-08-09 17:00:00 +0900
 categories: [AWS]
 tags: [nginx, swagger, reverse-proxy, vpc, security]

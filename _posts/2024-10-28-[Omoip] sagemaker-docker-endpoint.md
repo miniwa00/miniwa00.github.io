@@ -1,5 +1,5 @@
 ---
-title: "Docker Image를 SageMaker Endpoint로 배포하기"
+title: "[Omoip] Docker Image를 SageMaker Endpoint로 배포하기"
 date: 2024-10-28 17:00:00 +0900
 categories: [AWS]
 tags: [aws, sagemaker, docker, ecr, endpoint]

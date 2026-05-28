@@ -1,5 +1,5 @@
 ---
-title: "Bastion Host를 통해 RDS 인스턴스에 접근하는 방법"
+title: "[Omoip] Bastion Host를 통해 RDS 인스턴스에 접근하는 방법"
 date: 2024-08-16 17:00:00 +0900
 categories: [AWS]
 tags: [aws, rds, bastion-host, ssh-tunnel, dbeaver]

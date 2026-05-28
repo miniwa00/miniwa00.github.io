@@ -1,5 +1,5 @@
 ---
-title: "React Native Firebase 설정 추가하기"
+title: "[Noneo] React Native Firebase 설정 추가하기"
 date: 2025-07-08 17:00:00 +0900
 categories: [React Native]
 tags: [react-native, firebase, firestore, auth]
