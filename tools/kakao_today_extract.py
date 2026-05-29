@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import datetime as dt
 import re
 import sys
@@ -88,6 +89,10 @@ def normalize_time(ampm: str | None, hour: str, minute: str) -> str:
 
 
 def extract_messages(text: str, selected_date: dt.date) -> list[str]:
+    csv_messages = extract_csv_messages(text, selected_date)
+    if csv_messages:
+        return csv_messages
+
     messages: list[str] = []
     current_date: dt.date | None = None
     current_index: int | None = None
@@ -148,6 +153,29 @@ def extract_messages(text: str, selected_date: dt.date) -> list[str]:
         if current_date == selected_date and current_index is not None:
             messages[current_index] += f"\n  {line.strip()}"
 
+    return messages
+
+
+def extract_csv_messages(text: str, selected_date: dt.date) -> list[str]:
+    sample = text.lstrip("\ufeff")
+    if not sample.startswith("Date,User,Message"):
+        return []
+
+    messages: list[str] = []
+    reader = csv.DictReader(sample.splitlines())
+    for row in reader:
+        raw_date = (row.get("Date") or "").strip()
+        sender = (row.get("User") or "").strip()
+        body = (row.get("Message") or "").strip()
+        if not raw_date or not sender:
+            continue
+        try:
+            timestamp = dt.datetime.strptime(raw_date, "%Y-%m-%d %H:%M:%S")
+        except ValueError:
+            continue
+        if timestamp.date() != selected_date:
+            continue
+        messages.append(f"- {timestamp:%H:%M} {sender}: {body}")
     return messages
 
 

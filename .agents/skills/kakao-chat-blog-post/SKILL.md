@@ -23,6 +23,7 @@ This workflow turns a KakaoTalk room export into a public Jekyll post using only
    ```
 
    Use `--date YYYY-MM-DD` when the user requests a non-today date.
+   KakaoTalk Mac text exports may be CSV files with `Date,User,Message` columns; the extractor supports that format.
 
 4. Read only the extracted Markdown file from `var/kakao-chat-blog-post/` and write a post from that material. Do not use messages from other dates.
 5. Create the final post in `_posts/` with this front matter shape:
