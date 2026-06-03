@@ -1,20 +1,20 @@
 ---
 name: kakao-chat-blog-post
-description: 사용자가 카카오톡 대화 내용 CSV 파일을 제공하고, 해당 파일에서 대상 날짜의 대화를 추출해 핵심 담론과 작성 방향을 먼저 제안한 뒤, 사용자가 승인/선택한 방향으로 블로그 포스트 초안을 작성하고, 최종 승인 후 Jekyll 블로그에 바로 게시해 달라고 요청할 때 사용한다. CSV export에서 당일 대화만 추려 익명화된 회고형 포스트를 만든다.
+description: 사용자가 카카오톡 대화 export 파일(.txt 또는 Date,User,Message CSV)을 제공하거나, 명시적으로 카카오톡 UI에서 대화 파일 저장을 요청했을 때 사용한다. 대상 날짜의 대화만 추출해 핵심 담론과 작성 방향을 먼저 제안한 뒤, 사용자가 승인/선택한 방향으로 블로그 포스트 초안을 작성하고, 최종 승인 후 Jekyll 블로그에 게시한다.
 ---
 
 # 카카오톡 대화 기반 블로그 포스트
 
 ## 개요
 
-사용자가 제공한 카카오톡 대화 내용 CSV 파일에서 대상 날짜의 대화만 추출한 뒤, 그 내용에서 핵심 담론과 글의 갈래를 먼저 파악한다. 곧바로 요약문을 쓰지 않고, 사용자에게 1~3개의 주제의식과 작성 방향을 제안한다. 사용자가 방향을 승인하거나 선택하면 그 방향으로 블로그 포스트 초안을 작성한다. 원본 CSV와 중간 대화 추출물은 사적인 자료이므로 git에 포함하지 않는다. 포스트 초안을 작성한 뒤에는 반드시 최종 컨펌을 받고, 사용자가 승인한 경우에만 GitHub Pages Jekyll 게시를 진행한다. Notion에는 저장하지 않는다.
+사용자가 제공한 카카오톡 대화 export 파일에서 대상 날짜의 대화만 추출한 뒤, 그 내용에서 핵심 담론과 글의 갈래를 먼저 파악한다. 곧바로 요약문을 쓰지 않고, 사용자에게 1~3개의 주제의식과 작성 방향을 제안한다. 사용자가 방향을 승인하거나 선택하면 그 방향으로 블로그 포스트 초안을 작성한다. 원본 export와 중간 대화 추출물은 사적인 자료이므로 git에 포함하지 않는다. 포스트 초안을 작성한 뒤에는 반드시 최종 컨펌을 받고, 사용자가 승인한 경우에만 GitHub Pages Jekyll 게시를 진행한다. Notion에는 저장하지 않는다.
 
 ## 기본 흐름
 
-1. 사용자가 카카오톡 대화 내용 CSV 파일 경로를 제공한다.
-2. CSV 파일이 존재하는지 확인한다.
-3. CSV의 헤더가 `Date,User,Message` 형식인지 확인한다.
-4. 원본 CSV를 블로그 repo의 ignored 디렉터리인 `var/kakao-chat-blog-post/` 아래로 복사한다.
+1. 사용자가 카카오톡 대화 내용 export 파일 경로를 제공하거나, 명시적으로 카카오톡 UI에서 저장을 요청한다.
+2. 파일이 존재하는지 확인한다. 직접 저장한 경우 다운로드 폴더의 최신 `KakaoTalk_*.txt`를 찾는다.
+3. 입력이 TXT export인지, 또는 `Date,User,Message` 헤더를 가진 CSV인지 확인한다.
+4. 원본 export를 블로그 repo의 ignored 디렉터리인 `var/kakao-chat-blog-post/` 아래로 복사한다.
 5. 대상 날짜만 추출한다. 날짜를 사용자가 지정하지 않으면 Asia/Seoul 기준 오늘을 사용한다.
 6. 추출된 당일 대화 파일만 읽고 핵심 담론, 갈래, 긴장점, 반복되는 질문을 파악한다.
 7. 사용자에게 1~3개의 주제의식과 작성 방향을 제안하고 승인 또는 선택을 받는다.
@@ -22,28 +22,43 @@ description: 사용자가 카카오톡 대화 내용 CSV 파일을 제공하고,
 9. 초안 본문과 의도한 제목을 사용자에게 보여주고 최종 컨펌을 받는다.
 10. 사용자가 최종 승인하면 `_posts/`에 Jekyll 포스트를 만들고, 빌드 검증 후 커밋/푸시한다.
 
+## 카카오톡 UI 저장 흐름
+
+사용자가 명시적으로 카카오톡 앱 조작을 요청한 경우에만 Computer Use로 저장을 진행한다. 기본 흐름은 사용자가 이미 준비한 파일을 입력으로 받는 것이다.
+
+Windows 카카오톡 채팅방에서 검증된 저장 흐름은 다음과 같다.
+
+1. 대상 채팅방 창을 활성화한다.
+2. `Ctrl+S`를 누른다.
+3. `다른 이름으로 저장` 대화상자가 뜨면 파일명을 바꾸지 않고 `Enter`를 누른다.
+4. `대화 내보내기` 완료 팝업이 뜨면 `확인`을 누른다.
+5. `%USERPROFILE%\Downloads`에서 최신 `KakaoTalk_*.txt` 파일을 찾는다.
+6. 이 파일을 `var/kakao-chat-blog-post/` 아래로 복사한 뒤, 이후 추출 명령의 입력으로 사용한다.
+
+파일 이름을 수동으로 바꾸거나 저장 위치를 직접 입력하려고 하면 Windows 저장 대화상자의 포커스/좌표가 불안정해질 수 있다. 자동화할 때는 기본 다운로드 저장 후 PowerShell 등 파일 시스템 명령으로 ignored 작업 폴더에 복사하는 방식을 우선한다.
+
 ## 당일 대화 추출
 
-Jekyll 블로그 repo가 `/Users/jmkim/local_dev/miniwa00.github.io`라면 사용자가 제공한 원본 CSV를 repo 안의 ignored 디렉터리로 복사한다.
+사용자가 제공했거나 카카오톡 UI에서 저장한 원본 export를 repo 안의 ignored 디렉터리로 복사한다.
 
-```bash
-mkdir -p var/kakao-chat-blog-post
-cp "<사용자가-제공한-csv-file>" var/kakao-chat-blog-post/
+```powershell
+New-Item -ItemType Directory -Force -Path var/kakao-chat-blog-post
+Copy-Item "<export-file.txt-or.csv>" var/kakao-chat-blog-post/
 ```
 
 대상 날짜만 추출한다. 날짜를 생략하면 Asia/Seoul 기준 오늘을 사용한다.
 
 ```bash
-python3 tools/kakao_today_extract.py "var/kakao-chat-blog-post/<csv-file>" --chat-name "<채팅방 이름>"
+python3 tools/kakao_today_extract.py "var/kakao-chat-blog-post/<export-file.txt-or.csv>" --chat-name "<채팅방 이름>"
 ```
 
 다른 날짜를 지정해야 하면 `--date YYYY-MM-DD`를 추가한다.
 
 ```bash
-python3 tools/kakao_today_extract.py "var/kakao-chat-blog-post/<csv-file>" --chat-name "<채팅방 이름>" --date 2026-05-29
+python3 tools/kakao_today_extract.py "var/kakao-chat-blog-post/<export-file.txt-or.csv>" --chat-name "<채팅방 이름>" --date 2026-05-29
 ```
 
-입력 CSV는 `Date,User,Message` 컬럼을 가져야 한다. 이 skill의 bundled script인 `scripts/kakao_today_extract.py`와 블로그 repo의 `tools/kakao_today_extract.py`는 이 CSV 형식을 지원한다.
+입력 파일은 카카오톡 Windows의 기본 `.txt` export 형식을 우선 지원한다. `[이름] [0:22]` 같은 24시간제와 `[이름] [오전 0:22]` 같은 오전/오후 표기를 모두 처리한다. CSV를 쓰는 경우에는 `Date,User,Message` 컬럼을 가져야 한다. 이 skill의 bundled script인 `scripts/kakao_today_extract.py`와 블로그 repo의 `tools/kakao_today_extract.py`는 두 형식을 모두 지원한다.
 
 ## 담론 파악과 방향 제안
 
@@ -168,7 +183,7 @@ git push origin master
 - 공개 포스트에는 대상 날짜로 추출된 대화만 사용한다.
 - 공개 포스트에는 모든 사람 이름을 직접적으로 쓰지 않고 `지인`으로 익명화한다.
 - 전화번호, 주소, 계좌번호, 가족 소득, 사적인 제3자 정보는 공개 글에 넣지 않는다.
-- 원본 CSV와 추출된 대화 파일은 `var/kakao-chat-blog-post/` 같은 ignored 디렉터리에만 둔다.
+- 원본 export와 추출된 대화 파일은 `var/kakao-chat-blog-post/` 같은 ignored 디렉터리에만 둔다.
 - 대화가 포스트로 만들기 부족하면 짧은 메모형 글로 만들거나, 사용자에게 내용이 부족하다고 알린다.
-- 이 스킬은 카카오톡 앱을 조작해 export하지 않는다. 사용자가 이미 준비한 CSV 파일을 입력으로 받는다.
-- Computer Use는 기본 흐름에서 사용하지 않는다. 사용자가 명시적으로 카카오톡 UI 조작을 요청한 경우에만 별도 작업으로 다룬다.
+- 기본 흐름에서는 카카오톡 앱을 조작하지 않고, 사용자가 이미 준비한 export 파일을 입력으로 받는다.
+- Computer Use는 사용자가 명시적으로 카카오톡 UI 조작을 요청한 경우에만 사용한다. 이때는 `Ctrl+S` 후 `Enter`로 다운로드 폴더에 저장하고, 최신 `KakaoTalk_*.txt`를 ignored 작업 폴더에 복사한다.

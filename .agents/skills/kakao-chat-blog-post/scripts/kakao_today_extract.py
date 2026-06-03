@@ -19,7 +19,7 @@ INLINE_RE = re.compile(
     r"^(?P<year>\d{4})[.\-/]\s*(?P<month>\d{1,2})[.\-/]\s*(?P<day>\d{1,2})[.\s,]+"
 )
 BRACKET_MESSAGE_RE = re.compile(
-    r"^\[(?P<sender>[^\]]+)\]\s*\[(?P<ampm>오전|오후)\s*(?P<hour>\d{1,2}):(?P<minute>\d{2})\]\s*(?P<body>.*)$"
+    r"^\[(?P<sender>[^\]]+)\]\s*\[(?:(?P<ampm>오전|오후)\s*)?(?P<hour>\d{1,2}):(?P<minute>\d{2})\]\s*(?P<body>.*)$"
 )
 INLINE_MESSAGE_RE = re.compile(
     r"^(?P<year>\d{4})[.\-/]\s*(?P<month>\d{1,2})[.\-/]\s*(?P<day>\d{1,2})[.\s,]+"
