@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kakao Chat Blog Post"
+  short_description: "Turn a KakaoTalk room export into a Jekyll blog post."
+  default_prompt: "카톡 채팅방 이름을 줄 테니 오늘 대화만 추출해서 블로그 포스트로 발행해줘."
