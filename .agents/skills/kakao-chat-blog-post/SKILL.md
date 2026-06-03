@@ -20,7 +20,7 @@ description: 사용자가 카카오톡 대화 export 파일(.txt 또는 Date,Use
 7. 사용자에게 1~3개의 주제의식과 작성 방향을 제안하고 승인 또는 선택을 받는다.
 8. 사용자가 승인/선택한 방향으로 포스트 초안을 작성한다.
 9. 초안 본문과 의도한 제목을 사용자에게 보여주고 최종 컨펌을 받는다.
-10. 사용자가 최종 승인하면 `_posts/`에 Jekyll 포스트를 만들고, 빌드 검증 후 커밋/푸시한다.
+10. 사용자가 최종 승인하면 `_posts/`에 Jekyll 포스트를 만들고 커밋/푸시한다. Windows 로컬 실행에서는 Jekyll 빌드를 생략하고 GitHub Actions/GitHub Pages 빌드에 맡긴다.
 
 ## 카카오톡 UI 저장 흐름
 
@@ -113,7 +113,7 @@ python3 tools/kakao_today_extract.py "var/kakao-chat-blog-post/<export-file.txt-
 작성 방향을 승인받은 뒤 포스트 초안을 작성하고, 초안을 작성한 뒤에는 반드시 사용자에게 최종 컨펌을 받는다. 사용자가 최종 승인하기 전에는 다음 작업을 하지 않는다.
 
 - `_posts/` 아래 최종 Jekyll 포스트 생성
-- Jekyll 빌드 검증
+- Jekyll 빌드 검증 또는 게시 푸시
 - git add/commit/push
 - 외부 게시 또는 공개 반영
 
@@ -122,7 +122,7 @@ python3 tools/kakao_today_extract.py "var/kakao-chat-blog-post/<export-file.txt-
 ```text
 승인된 초안
 -> Jekyll 포스트로 변환
--> 빌드 검증 후 GitHub Pages 저장소에 게시
+-> GitHub Pages 저장소에 게시
 ```
 
 ## 승인 후 Jekyll 게시
@@ -140,11 +140,11 @@ Jekyll 게시 절차:
 5. 이미지가 필요하면 저장소의 기존 이미지 자산 관례에 맞는 경로에 넣고, 포스트 본문에서 상대 경로 또는 사이트 관례에 맞는 경로로 참조한다.
 6. 승인된 초안의 회고 톤과 Markdown 헤더 구조를 최대한 보존하되, 너무 사적인 작업 지시나 도구 호출 흔적은 덜어낸다.
 7. 공개 포스트에 사람 이름이나 채팅방 이름이 남아 있지 않은지 다시 검사한다.
-8. `bundle exec jekyll build` 등 저장소의 기존 검증 명령으로 빌드가 통과하는지 확인한다.
-9. 변경 파일이 포스트와 필요한 이미지 자산으로 제한되는지 확인한다.
-10. 커밋 메시지는 승인된 포스트 제목을 사용해 `docs: <포스트 제목>` 형식으로 작성한다.
+8. 공개 포스트의 익명화와 front matter를 확인하고, 변경 파일이 포스트와 필요한 이미지 자산으로 제한되는지 확인한다.
+9. Windows 로컬 실행에서는 Jekyll 빌드를 생략한다. Ruby/Bundler가 준비된 Linux/macOS 또는 CI 환경에서는 필요할 때만 `bundle exec jekyll build`를 선택적으로 실행한다.
+10. 커밋 메시지는 현재 repo/스레드의 git 지시를 우선한다. 별도 지시가 없으면 승인된 포스트 제목을 사용해 `docs: <포스트 제목>` 형식으로 작성한다.
 11. 원격 브랜치에 푸시해 GitHub Pages 게시를 완료한다.
-12. 최종 보고에는 포스트 파일 경로, 이미지 경로, 검증 결과, 커밋 해시, 푸시 브랜치를 포함한다.
+12. 최종 보고에는 포스트 파일 경로, 검증 생략/수행 여부, 커밋 해시, 푸시 브랜치를 포함한다.
 
 게시 단계의 Jekyll 포스트는 기존 블로그 스타일에 맞춰 다음 front matter를 사용한다.
 
@@ -162,19 +162,15 @@ comments: true
 ---
 ```
 
-## 승인 후 검증과 발행
+## 승인 후 발행
 
-사용자 승인 후 Jekyll 포스트를 만든 뒤 Jekyll 빌드를 확인한다.
+사용자 승인 후 Jekyll 포스트를 만든다. Windows 로컬 실행에서는 Jekyll 빌드를 실행하지 않고 바로 커밋/푸시한다.
 
-```bash
-bundle exec jekyll build
-```
-
-빌드가 통과하면 승인된 포스트 제목을 커밋 메시지에 사용한다.
+Linux/macOS 또는 CI와 같은 Jekyll 실행 환경이 준비된 경우에만 선택적으로 빌드를 확인한다.
 
 ```bash
 git add <필요한 파일>
-git commit -m "docs: <포스트 제목>"
+git commit -m "<현재 git 지시에 맞는 메시지>"
 git push origin master
 ```
 
